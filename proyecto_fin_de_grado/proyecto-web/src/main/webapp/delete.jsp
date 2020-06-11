@@ -47,7 +47,12 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
 <link href="assets/css/style.css" rel="stylesheet">
+<style>
+ li{
+	cursor: pointer;
+}
 
+</style>
 </head>
 
 <body>

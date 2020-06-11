@@ -188,6 +188,19 @@ form:before {
 input { 
     text-align: center; 
 }
+
+ li{
+	cursor: pointer;
+}
+
+label.form-control {
+  color: white;
+  padding: 8px;
+  font-family: Arial;
+  background-color: #2196F3;
+  margin-top: 10px;
+}
+
 </style>
 </head>
 
@@ -256,7 +269,7 @@ input {
 		<input type="hidden" name="action" value="insertCar" />
 		
 			<div class="form-group">
-				<label>Transmission</label> <select class="custom-select"
+				<label class="form-control">Transmisión</label> <select class="custom-select"
 					name="transmission" id="transmission" required>
 					<%
 						List<Transmission> transmissions = (List<Transmission>) request.getAttribute("transmissions");
@@ -274,7 +287,7 @@ input {
 			</div>
                            
 			<div>
-				<label for="validationServer02">Tipo de motor</label> <input
+				<label for="validationServer02" class="form-control">Tipo de motor</label> <input
 					type="text" class="form-control " id="validationServer02"
 					placeholder="" name="enginetype" 
 					required>
@@ -283,7 +296,7 @@ input {
 			
 				<h2 class="m-5">Estadísticas del motor</h2>
 				<div>
-					<label for="validationServer03">Caballos de potencia</label> <input
+					<label for="validationServer03" class="form-control">Caballos de potencia</label> <input
 						type="text" class="form-control "
 						placeholder=""
 						name="horsepower" id="horsepower" id="horsepower"  pattern="[0-9]{1,19}" title="Solo acepta números, 1 valor mínimo" 
@@ -291,7 +304,7 @@ input {
 					
 				</div>
 				<div>
-					<label for="validationServer04">Torque</label> <input type="text"
+					<label for="validationServer04" class="form-control">Torque</label> <input type="text"
 						class="form-control " 
 						placeholder=""
 						name="torque" id="torque" pattern="[0-9]{1,19}" title="Solo acepta números, 1 valor mínimo"
@@ -301,7 +314,7 @@ input {
 
 			<div class="form-group">
 				<div class="form-row">
-					<label class="mt-2 col-form-label" for="hybrid">Híbrido:</label>
+					<label class="mt-2 col-form-label" for="hybrid" class="form-control">Híbrido:</label>
 					<div class="form-check ml-1 mt-3">
 					<%
 							Car c = new Car();
@@ -313,13 +326,13 @@ input {
 				</div>
 			</div>
 			<div>
-				<label for="validationServer05">Número de marchas delanteras</label> <input
+				<label for="validationServer05" class="form-control">Número de marchas</label> <input
 					type="text" class="form-control "
 					name="numberofforwardgears" id="numberofforwardgears" pattern="[0-9]{0,19}" title="Solo acepta números"
 					required>
 			</div>
 			<div class="form-group">
-				<label>Línea motriz</label> <select class="custom-select"
+				<label class="form-control">Línea motriz</label> <select class="custom-select"
 					name="driveline" id="driveline" required>
 					<%
 						List<DriveLine> drivelines = (List<DriveLine>) request.getAttribute("drivelines");
@@ -339,28 +352,28 @@ input {
 
 		<h2 class="m-5">Identificación</h2>
 			<div>
-				<label for="validationServer08">Marca</label> <input
+				<label for="validationServer08" class="form-control">Marca</label> <input
 					type="text" class="form-control " 
 					placeholder=""
 					name="make" id="make" pattern="^[A-Z][A-Za-z]{2,19}$" title="La marca solo acepta letras y la primera en mayúsculas" required>
 				
 			</div>
 			<div>
-				<label for="validationServer08">Año del modelo</label> <input
+				<label for="validationServer08" class="form-control">Año del modelo</label> <input
 					type="text" class="form-control " 
 					placeholder=""
 					name="modelyear" id="modelyear"  required>
 				
 			</div>
 			<div>
-				<label for="validationServer09">Nombre</label> <input type="text"
+				<label for="validationServer09" class="form-control">Nombre</label> <input type="text"
 					class="form-control "
 					placeholder=""
 					name="name" id="name" data-toggle="tooltip" data-placement="right" title="El nombre debe ser único" required>
 				
 			</div>
 			<div class="form-group">
-				<label>Clasificación</label> <select class="custom-select"
+				<label class="form-control">Clasificación</label> <select class="custom-select"
 					name="classification" id="classification" required>
 					<%
 						List<Classification> classifications = (List<Classification>) request.getAttribute("classifications");
@@ -377,7 +390,7 @@ input {
 					
 			</div>
 			<div>
-				<label for="validationServer10">Año</label> <input type="text"
+				<label for="validationServer10" class="form-control">Año</label> <input type="text"
 					class="form-control "
 					name="year" id="year" pattern="^(2009|2010|2011|2012)" title="El año solo acepta años del 2009 al 2012" placeholder="Year"
 					required>
@@ -387,21 +400,21 @@ input {
 		<h2 class="m-5">Dimensiones</h2>
 
 			<div>
-				<label for="validationServer12">Anchura</label> <input type="text"
+				<label for="validationServer12" class="form-control">Anchura</label> <input type="text"
 					name="width" id="width" pattern="[0-9]{0,19}" title="Solo acepta números" class="form-control "
 					placeholder=""
 					required>
 				
 			</div>
 			<div>
-				<label for="validationServer13">Longitud</label> <input type="text"
+				<label for="validationServer13" class="form-control">Longitud</label> <input type="text"
 					class="form-control " 
 					name="length" id="length" pattern="[0-9]{0,19}" title="Solo acepta números" placeholder=""
 					required>
 				
 			</div>
 			<div>
-				<label for="validationServer14">Altura</label> <input type="text"
+				<label for="validationServer14" class="form-control">Altura</label> <input type="text"
 					class="form-control "
 					name="height" id="height" pattern="[0-9]{0,19}" title="Solo acepta números" placeholder=""
 					required>
@@ -410,21 +423,21 @@ input {
 
 		<h2 class="m-5">Información del combustible</h2>
 			<div>
-				<label for="validationServer15">Mpg en carretera</label> <input
+				<label for="validationServer15" class="form-control">Km/h en carretera</label> <input
 					type="text" class="form-control " 
 					name="highwaympg" id="highwaympg" pattern="[0-9]{0,19}" title="Solo acepta números" placeholder=""
 					required>
 				
 			</div>
 			<div>
-				<label for="validationServer16">Mph en ciudad</label> <input type="text"
+				<label for="validationServer16" class="form-control">Km/h en ciudad</label> <input type="text"
 					class="form-control "
 					name="citymph" id="citymph" pattern="[0-9]{0,19}" title="Solo acepta números" placeholder=""
 					required>
 				
 			</div>
-			<div class="form-group">
-				<label>Tipo de combustible</label> <select class="custom-select" name="fuelType" id="fuelType"
+			<div class="form-group" >
+				<label class="form-control">Tipo de combustible</label> <select class="custom-select" name="fuelType" id="fuelType"
 					required>
 					<%
 						List<Fuel> fueltypes = (List<Fuel>) request.getAttribute("fueltypes");
@@ -447,12 +460,11 @@ input {
 			
 			</div>
 		
-		<button class="btn btn-primary btn-lg" type="submit">Insertar</button>
+		<button class="btn btn-primary btn-lg" type="submit" style="margin-top: 5px">Insertar</button>
 		
                         </form>
             
-	<button class="btn btn-primary hBack" onclick="location.href = 'http://localhost:8080/proyecto-web/';">REGRESAR A
-		LOS COCHES</button>
+	<button class="btn btn-primary hBack" onclick="location.href = 'http://localhost:8080/proyecto-web/';" style="margin-top: 5px">Volver al listado</button>
                     </div>
                 </div>
             </div>

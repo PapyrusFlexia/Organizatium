@@ -46,6 +46,7 @@ th {
 
 <link href="assets/css/style.css" rel="stylesheet">
 <style>
+
 #busqueda {
   background-position: 10px 12px;
   background-repeat: no-repeat;
@@ -55,6 +56,12 @@ th {
   border: 1px solid #ddd; 
   margin-bottom: 12px; 
 }
+
+#maxRows {  
+    height: 700px !important;
+    overflow: scroll;
+}​
+
 
 #myTable {
   border-collapse: collapse; 
@@ -156,6 +163,20 @@ th {
     }
 }
 
+li{
+	cursor: pointer;
+}
+
+label.form-control {
+  color: white;
+  padding: 8px;
+  font-family: Arial;
+  background-color: #2196F3;
+  margin-top: 10px;
+
+ 
+}
+
 </style>
 </head>
 
@@ -223,6 +244,7 @@ th {
 
 
 	<jsp:include page="head.jsp" />
+	
 	<br><br>
 	<section class="mt-4">
 	
@@ -231,7 +253,7 @@ th {
 				<div class="col-md-3 col-sm-3 ml-5">
 					<div class="form-group">
 						<select class="form-control" data-live-search="true"
-							title="Filter by year" id="year">
+							title="Filtrar por año" id="year">
 							<option value="-1">FILTRAR POR AÑO</option>
 							<%
 								for (Integer year : anno) {
@@ -247,7 +269,7 @@ th {
 				<div class="col-md-3 col-sm-3 ml-5">
 					<div class="form-group">
 						<select class="form-control" data-live-search="true"
-							title="Filter by makes" id="make">
+							title="Filtrar por marca" id="make">
 							<option value="-1">FILTRAR POR MARCA</option>
 							<%
 								for (String model : modeloTabla) {
@@ -264,7 +286,7 @@ th {
 				<div class="col-md-3 col-sm-3 ml-5">
 					<div class="form-group">
 						<select class="form-control" data-live-search="true"
-							title="Filter by hybrid" id="hybrid">
+							title="Filtrar por híbrido" id="hybrid">
 							<option value="-1">FILTRAR POR HÍBRIDOS</option>
 							<%
 								for (Boolean hybrid : hybridTabla) {
@@ -278,13 +300,16 @@ th {
 					</div>
 				</div>
 			</div>
-			<div class="row row justify-content-center">
+			<div class="row row justify-content-center" id="maxRows">
 				<div class="col-lg-6 order-1 order-lg-2 hero-img"
 					data-aos="fade-left" data-aos-delay="200"></div>
 
-<input type="text" id="busqueda" onkeyup="buscar()" placeholder="Buscar por modelo...">
-				<table class="table table-bordered table-striped text-center"
-					id="myTable">
+<input type="text" id="busqueda" onkeyup="buscar()" placeholder="Búsqueda por marca...">
+	<nav class="nav-menu d-none d-lg-block align-items-center mb-2">
+	<ul><li class="get-started"><a onclick="location.href = 'http://localhost:8080/proyecto-web/insert';">Insertar</a></li></ul>
+	</nav>			
+				<table class="table table-bordered table-striped text-center" id="myTable">
+				
 					<thead class="thead-light">
 						<tr>
 							<th scope="col"><p class="text-center">ID</p></th>
@@ -299,7 +324,7 @@ th {
 								</th>
 							<th scope="col"><p class="text-center">Híbrido</p></th>
 							<th scope="col"><p class="text-center">Clasificación</p></th>
-							<th scope="col"><p class="text-center">Acciones</p></th>
+							<th scope="col"><p class="text-center">Detalles</p></th>
 
 						</tr>
 
@@ -318,8 +343,7 @@ th {
 							<td><%=c.isHybrid()%></td>
 							<td><%=c.getClassification().getClassification()%></td>
 							<td><a
-								href="./?action=detalles&pk=<%=c.getId()%>&redirect=<%=encodeValue(request.getQueryString())%>">Detalles
-									|</a> <a href="http://localhost:8080/proyecto-web/insert">Insertar</a>
+								href="./?action=detalles&pk=<%=c.getId()%>&redirect=<%=encodeValue(request.getQueryString())%>">Detalles</a> 
 							</td>
 						</tr>
 
@@ -418,7 +442,7 @@ th {
 	
 			
 		
-		<section id="about" class="about">
+		<section id="populate" class="populate">
 
 				<div class="section-title" data-aos="fade-up">
 					<h2>Poblar tablas</h2>
@@ -445,7 +469,7 @@ th {
         
 
         					<h4 class="text-uppercase font-weight-bold">Cargando</h4>
-        					<p class="font-italic text-muted">Poblando, esta acción puede tardar unos minutos.</p>
+        					<p class="font-italic text-muted">Poblando coches, esta acción puede tardar unos minutos.</p>
     					</div>
 					</div>
 					</li>
@@ -466,7 +490,7 @@ th {
         
 
         					<h4 class="text-uppercase font-weight-bold">Cargando</h4>
-        					<p class="font-italic text-muted">Poblando, esta acción puede tardar unos minutos.</p>
+        					<p class="font-italic text-muted">Poblando motores, esta acción puede tardar unos minutos.</p>
     					</div>
 					</div>
 				</li>
@@ -487,7 +511,7 @@ th {
         
 
         					<h4 class="text-uppercase font-weight-bold">Cargando</h4>
-        					<p class="font-italic text-muted">Poblando, esta acción puede tardar unos minutos.</p>
+        					<p class="font-italic text-muted">Poblando combustibles, esta acción puede tardar unos minutos.</p>
     					</div>
 					</div>
 				</li>
@@ -508,7 +532,7 @@ th {
         
 
         					<h4 class="text-uppercase font-weight-bold">Cargando</h4>
-        					<p class="font-italic text-muted">Poblando, esta acción puede tardar unos minutos.</p>
+        					<p class="font-italic text-muted">Poblando líneas de transmisión, esta acción puede tardar unos minutos.</p>
     					</div>
 					</div>
 				</li>
@@ -529,7 +553,7 @@ th {
         
 
         					<h4 class="text-uppercase font-weight-bold">Cargando</h4>
-        					<p class="font-italic text-muted">Poblando, esta acción puede tardar unos minutos.</p>
+        					<p class="font-italic text-muted">Poblando transmisiones, esta acción puede tardar unos minutos.</p>
     					</div>
 					</div>
 				</li>
@@ -550,7 +574,7 @@ th {
         
 
         					<h4 class="text-uppercase font-weight-bold">Cargando</h4>
-        					<p class="font-italic text-muted">Poblando, esta acción puede tardar unos minutos.</p>
+        					<p class="font-italic text-muted">Poblando clasificaciones, esta acción puede tardar unos minutos.</p>
     					</div>
 					</div>
 				</li>
@@ -910,7 +934,7 @@ th {
 						<div class="info">
 							<div>
 								<i class="ri-map-pin-line"></i>
-								<p>C/ Luis Fuentes Bejarano nº37</p>
+								<p>Av. Turia, 11</p>
 							</div>
 
 							<div>
@@ -920,7 +944,7 @@ th {
 
 							<div>
 								<i class="ri-phone-line"></i>
-								<p>601 027 982</p>
+								<p>954 99 96 17</p>
 							</div>
 
 						</div>

@@ -48,6 +48,13 @@
 
 <link href="assets/css/style.css" rel="stylesheet">
 
+<style>
+ li{
+	 cursor: pointer;
+}
+
+</style>
+
 </head>
 
 <body>

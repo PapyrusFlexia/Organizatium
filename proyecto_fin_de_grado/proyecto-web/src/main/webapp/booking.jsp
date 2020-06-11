@@ -61,6 +61,11 @@
 	color: yellow;
 }
 }
+
+li{
+   cursor: pointer;
+}
+   
 </style>
 </head>
 
@@ -99,10 +104,10 @@
 		</div>
 	</header>
 
-	<div class="pt-5 mt-5">
+	<div class="pt-5 mt-5" id="dataid">
 	
-<div class="section-title" data-aos="fade-up">
-				<h2>Reservas</h2>
+<div class="section-title" data-aos="fade-up" >
+				<h2>Reservas actuales</h2>
 			</div>
 		<table class="table table-bordered table-striped text-center"
 			id="booking" class="display">

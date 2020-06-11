@@ -328,19 +328,14 @@
 			
 								<table cellspacing="15">
 									<tr>
-										<td>¿Eres humano?</td>
-										<td><input type="text" name="code"></td>
+										<td>¿Eres humano?:</td>
+										<td><input type="text" name="code" placeholder="Captcha" autocomplete="off"></td>
 									</tr>
 
 								</table>
 								<br> <img
 									src="http://localhost:8080/proyecto-web/CaptchaServlet">
-									
-									
-						
 							<br> <br>
-
-						
 				      <input type="submit" class="fadeIn fourth" value="Registrarse" id="save_data"/>
 				    </form>
 				   

@@ -1,3 +1,3 @@
 # Organizatium
 
-Proyecto de fin de grado en el Desarrollo de Aplicaciones Web
+Proyecto de fin de grado en el Desarrollo de Aplicaciones Web.
